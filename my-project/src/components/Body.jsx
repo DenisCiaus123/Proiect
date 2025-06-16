@@ -9,6 +9,8 @@ export const Body = () => {
     const [entryIndex, setEntryIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [answers, setAnswers] = useState([]);
+    const [category, setCategory] = useState("");
+    const [difficulty, setDifficulty] = useState("");
 
     function decodeHtml(htmlCode) {
         const txt = document.createElement("textarea");
@@ -18,10 +20,15 @@ export const Body = () => {
 
     const addPoints = (type, difficulty) => {
         let points = 0;
-        type === "multiple" ? 2 : 0;
+
+        if (type === "multiple") {
+            points += 2;
+        }
+
         if (difficulty === "easy") points += 1;
         else if (difficulty === "medium") points += 2;
         else points += 3;
+
         return points;
     };
 
@@ -37,9 +44,21 @@ export const Body = () => {
         if (loading) return;
         setLoading(true);
         try {
-            const response = await axios.get("https://opentdb.com/api.php?amount=50");
+            let url = `https://opentdb.com/api.php?amount=50`;
+            if (category) {
+                url += `&category=${category}`;
+            }
+            if (difficulty && difficulty !== "mixed") {
+                url += `&difficulty=${difficulty}`;
+            }
+
+            setEntryIndex(0);
+            setScore(0);
+            const response = await axios.get(url);
             setFetchedEntries(response.data.results);
             setEntry(response.data.results[0]);
+            console.log(url);
+            setEntryIndex(0);
         } catch (error) {
             console.error("Error fetching data:", error);
         } finally {
@@ -76,14 +95,94 @@ export const Body = () => {
 
     return (
         <div className={styles["main-content"]}>
-            <div>
-                <h3 className={styles.question}>
-                    {entry
-                        ? decodeHtml(entry.question)
-                        : <button className={styles["button-start"]} onClick={fetchData}>Start Quiz</button>
-                    }
-                </h3>
-            </div>
+            {entryIndex >= fetchedEntries.length && fetchedEntries.length > 0 ? (
+                <div className={styles["end-screen"]}>
+                    <h2>Quiz Complete!</h2>
+                    <p>Your final score: <strong>{score}</strong></p>
+                    <button onClick={fetchData} className={styles["button-start"]}>Play Again</button>
+                </div>
+            ) : (
+                <div>
+                    <h3 className={styles.question}>
+                        {entry
+                            ? decodeHtml(entry.question)
+                            : (<>
+                                <select
+                                    className={styles["category-select"]}
+                                    value={category}
+                                    onChange={(e) => setCategory(e.target.value)}
+                                >
+                                    <option value="">Any Category</option>
+                                    <option value="9">General Knowledge</option>
+                                    <option value="10">Entertainment: Books</option>
+                                    <option value="11">Entertainment: Film</option>
+                                    <option value="12">Entertainment: Music</option>
+                                    <option value="13">Entertainment: Musicals & Theatres</option>
+                                    <option value="14">Entertainment: Television</option>
+                                    <option value="15">Entertainment: Video Games</option>
+                                    <option value="16">Entertainment: Board Games</option>
+                                    <option value="17">Science & Nature</option>
+                                    <option value="18">Science: Computers</option>
+                                    <option value="19">Science: Mathematics</option>
+                                    <option value="20">Mythology</option>
+                                    <option value="21">Sports</option>
+                                    <option value="22">Geography</option>
+                                    <option value="23">History</option>
+                                    <option value="24">Politics</option>
+                                    <option value="25">Art</option>
+                                    <option value="25">Celebrities</option>
+                                    <option value="27">Animals</option>
+
+                                </select>
+                                <div className={styles["difficulty-container"]}>
+                                    <span className={styles["difficulty-text"]}>Difficulty:</span>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="difficulty"
+                                            value="mixed"
+                                            checked={difficulty === ""}
+                                            onChange={(e) => setDifficulty(e.target.value)}
+                                        />
+                                        Mixed
+                                    </label>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="difficulty"
+                                            value="easy"
+                                            checked={difficulty === "easy"}
+                                            onChange={(e) => setDifficulty(e.target.value)}
+                                        />
+                                        Easy
+                                    </label>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="difficulty"
+                                            value="medium"
+                                            checked={difficulty === "medium"}
+                                            onChange={(e) => setDifficulty(e.target.value)}
+                                        />
+                                        Medium
+                                    </label>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="difficulty"
+                                            value="hard"
+                                            checked={difficulty === "hard"}
+                                            onChange={(e) => setDifficulty(e.target.value)}
+                                        />
+                                        Hard
+                                    </label>
+                                </div>
+                                <button className={styles["button-start"]} onClick={fetchData}>Start Quiz</button>
+                            </>)
+
+                        }
+                    </h3>
+                </div>)};
             {entry ? (<>
                 {entry.type === "multiple" ?
                     (<>
@@ -100,16 +199,15 @@ export const Body = () => {
                             <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[1]}</button>
                         </div>
                     </>)
-                }</>) :
+
+                }
+                <div className={styles.score}>
+                    <span>Score: </span>
+                    <span>{score}</span>
+                </div>
+            </>) :
                 (<></>)}
-            <div className={styles.score}>
-                <span>Score: </span>
-                <span>{score}</span>
-            </div>
-            <input type="text" placeholder="text PH" className={styles["body-input"]} />
-            <div>
-                <button className={styles["button-search"]}>Search</button>
-            </div>
+
         </div>
     );
 };
