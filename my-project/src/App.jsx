@@ -7,7 +7,7 @@ import './global.css';
 export const App = () => {
   return (
     <div>
-      <Header title="Titlu" subtitle="Subtitlu" logo={logo} />
+      <Header title="Trivi-Oh!" subtitle="Subtitlu" logo={logo} />
       <Body />
       <Footer />
     </div>
