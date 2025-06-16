@@ -75,7 +75,7 @@ export const Body = () => {
     }, [entryIndex]);
 
     return (
-        <div className={styles.main_content}>
+        <div className={styles["main-content"]}>
             <div>
                 <h3 className={styles.question}>
                     {entry
@@ -84,32 +84,28 @@ export const Body = () => {
                     }
                 </h3>
             </div>
-
-            {entry && (
-                entry.type === "multiple" ? (
-                    <div className={styles.container_multi_answer}>
-                        {answers.map((ans, idx) => (
-                            <button key={idx} className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>
-                                {ans}
-                            </button>
-                        ))}
-                    </div>
-                ) : (
-                    <div className={styles.container_bool_answer}>
-                        {answers.slice(0, 2).map((ans, idx) => (
-                            <button key={idx} className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>
-                                {ans}
-                            </button>
-                        ))}
-                    </div>
-                )
-            )}
-
+            {entry ? (<>
+                {entry.type === "multiple" ?
+                    (<>
+                        <div className={styles["container-multi-answer"]}>
+                            <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[0]}</button>
+                            <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[1]}</button>
+                            <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[2]}</button>
+                            <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[3]}</button>
+                        </div>
+                    </>) :
+                    (<>
+                        <div className={styles["container-bool-answer"]}>
+                            <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[0]}</button>
+                            <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[1]}</button>
+                        </div>
+                    </>)
+                }</>) :
+                (<></>)}
             <div className={styles.score}>
                 <span>Score: </span>
                 <span>{score}</span>
             </div>
-
             <input type="text" placeholder="text PH" className={styles["body-input"]} />
             <div>
                 <button className={styles["button-search"]}>Search</button>
