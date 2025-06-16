@@ -1,0 +1,17 @@
+.footer_list {
+    padding: 20px;
+    text-align: center;
+    color:  rgb(254,250,224);
+    list-style-position: inside;
+}
+
+.footer_link:link {
+    text-align: center;
+    color:  rgb(254,250,224);
+}
+
+.copyright {
+    margin-top: 10px;
+    text-align: center;
+    color:  rgb(254,250,224);
+}

@@ -1,0 +1,39 @@
+.navbar {
+    display:flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0 15px;
+    background-color: rgb(42, 157, 143); 
+}
+
+.navbar_logo {
+    padding: 20px ;
+}
+
+.logo_img {
+    height: auto;
+    width: auto;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.title_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar_title {
+    text-align:left;
+    color: rgb(254,250,224);
+    line-height:1;
+    margin-bottom:-10px;
+    padding:2px;
+    font-size: 30px;
+}
+
+.navbar_subtitle {
+    color: rgb(254,250,224);
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
