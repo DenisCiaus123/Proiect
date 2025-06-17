@@ -7,32 +7,27 @@
 }
 
 .footer-link:link, .footer-link:visited {
-    text-align: center;
     color:  #fefae0;
-    background-color: #2a9d8f;
     text-decoration: none;
 }
 
 .footer-link:visited {
-    text-align: center;
-    color:  #fefae0;
+    color:  #ffd45e;
     text-decoration: none;
 }
 
 .footer-link:hover{
-    text-align: center;
     color:  #fefae0;
     text-decoration: underline;
 }
 
 .footer-link:active{
-    text-align: center;
-    color:  #fefae0;
+    color:  #2a9d90;
     text-decoration: none;
 }
 
 .copyright {
     margin-top: 10px;
-    text-align: center;
     color:  #fefae0;
+    font-size: 1.5rem;
 }

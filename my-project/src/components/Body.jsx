@@ -182,7 +182,7 @@ export const Body = () => {
 
                         }
                     </h3>
-                </div>)};
+                </div>)}
             {entry ? (<>
                 {entry.type === "multiple" ?
                     (<>

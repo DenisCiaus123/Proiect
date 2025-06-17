@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     margin: 0;
     padding: 0 15px;
-    background-color: #2A9D8F;
+    background-color: #2f6370;
 }
 
 .navbar-logo {
@@ -20,6 +20,8 @@
 .title-container {
     display: flex;
     flex-direction: column;
+    row-gap: 5px;
+    margin-top: -8px;
 }
 
 .navbar-title {
