@@ -1,0 +1,65 @@
+.quizQuestion {
+  color: #fefae0;
+  background-color: #2f6370;
+  padding: 30px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  text-align: center;
+  font-size: x-large;
+}
+
+.multipleChoiceGrid {
+  background-color: #2f6370;
+  text-align: center;
+  padding: 30px;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 20px;
+  width: 1000px;
+}
+
+.booleanChoiceGrid {
+  background-color: #2f6370;
+  text-align: center;
+  padding: 30px;
+  border-radius: 1rem;
+  width: 1000px;
+}
+
+.answerButton {
+  color: #fefae0;
+  background-color: #3C3F58;
+  border-radius: 15px;
+  padding: 10px 30px;
+  margin: 0 10px;
+  text-align: center;
+  border-color: #fefae0;
+  transition-duration: 0.3s;
+  width: 480px;
+}
+
+.answerButton:hover {
+  box-shadow: 0 2px 6px 0 #3c3f5877, 0 7px 15px 0 #54587c65;
+  background-color: #5A7D9A;
+  cursor: pointer;
+}
+
+.answerButton:active {
+  transform: translateY(4px);
+  background-color: #3C3F58;
+}
+
+.scorePanel {
+  color: #fefae0;
+  background-color: #3C3F58;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 1rem;
+  font-size: x-large;
+  font-weight: bold;
+  width: 500px;
+  text-align: center;
+}

@@ -1,0 +1,16 @@
+.quizEndScreen {
+  color: #fefae0;
+  background-color: #2f6370;
+  text-align: center;
+  padding: 30px;
+  border-radius: 1rem;
+  width: 500px;
+  font-size: x-large;
+}
+
+.quizEndScreen p {
+  margin-top: -5px;
+  color: #3C3F58;
+  background-color: #fefae0;
+  border-radius: 1rem;
+}
