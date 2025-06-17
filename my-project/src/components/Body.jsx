@@ -93,6 +93,19 @@ export const Body = () => {
         }
     }, [entryIndex]);
 
+    const applyDifficultyStyle = (difficulty) => {
+        switch (difficulty) {
+            case "easy":
+                return "easy";
+            case "medium":
+                return "medium";
+            case "hard":
+                return "hard";
+            default:
+                return "easy";
+        }
+    }
+
     return (
         <div className={styles["main-content"]}>
             {entryIndex >= fetchedEntries.length && fetchedEntries.length > 0 ? (
@@ -103,7 +116,7 @@ export const Body = () => {
                 </div>
             ) : (
                 <div>
-                    <h3 className={styles.question}>
+                    <h3 className= {entry ? `${styles["question"]} ${styles[applyDifficultyStyle(entry.difficulty)]}` : styles["question"]}>
                         {entry
                             ? decodeHtml(entry.question)
                             : (<>
@@ -179,14 +192,13 @@ export const Body = () => {
                                 </div>
                                 <button className={styles["button-start"]} onClick={fetchData}>Start Quiz</button>
                             </>)
-
                         }
                     </h3>
                 </div>)}
             {entry ? (<>
                 {entry.type === "multiple" ?
                     (<>
-                        <div className={styles["container-multi-answer"]}>
+                        <div className={`${styles["container-multi-answer"]} ${styles[applyDifficultyStyle(entry.difficulty)]}`}>
                             <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[0]}</button>
                             <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[1]}</button>
                             <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[2]}</button>
@@ -194,7 +206,7 @@ export const Body = () => {
                         </div>
                     </>) :
                     (<>
-                        <div className={styles["container-bool-answer"]}>
+                        <div className={`${styles["container-bool-answer"]} ${styles[applyDifficultyStyle(entry.difficulty)]}`}>
                             <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[0]}</button>
                             <button className={styles["button-answer"]} onClick={(e) => checkAnswer(e, entry)}>{answers[1]}</button>
                         </div>
