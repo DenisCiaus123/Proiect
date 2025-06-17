@@ -1,4 +1,4 @@
-import styles from './headerStyle.module.css';
+import styles from './Header.module.css';
 
 export const Header = ({ title, subtitle, logo }) => {
     return (

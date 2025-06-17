@@ -1,0 +1,9 @@
+.quizContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  gap: 10px;
+}
