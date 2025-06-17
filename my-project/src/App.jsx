@@ -2,7 +2,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import logo from "./images/logo_light.png";
 import { MainContent } from "./components/MainContent";
-import styles from './global.module.css';
+import styles from "./components/styles/Shared.module.css";
 
 export const App = () => {
   return (

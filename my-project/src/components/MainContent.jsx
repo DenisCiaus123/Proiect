@@ -9,7 +9,7 @@ import {QuizEnd} from "./QuizEnd";
 
 export const MainContent = () => {
     const [loading, setLoading] = useState(false);
-    const [fetchedEntries, setFetchedEntries] = useState([]);
+    const [fetchedEntities, setfetchedEntities] = useState([]);
     const [entity, setEntity] = useState(null);
     const [entityIndex, setEntityIndex] = useState(0);
     const [score, setScore] = useState(0);
@@ -31,7 +31,7 @@ export const MainContent = () => {
             setEntityIndex(0);
             setScore(0);
             const response = await axios.get(url);
-            setFetchedEntries(response.data.results);
+            setfetchedEntities(response.data.results);
             setEntity(response.data.results[0]);
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -41,22 +41,22 @@ export const MainContent = () => {
     };
 
     useEffect(() => {
-        if (fetchedEntries.length > 0 && entityIndex < fetchedEntries.length) {
-            setEntity(fetchedEntries[entityIndex]);
-        } else if (entityIndex >= fetchedEntries.length) {
+        if (fetchedEntities.length > 0 && entityIndex < fetchedEntities.length) {
+            setEntity(fetchedEntities[entityIndex]);
+        } else if (entityIndex >= fetchedEntities.length) {
             setEntity(null);
         }
     }, [entityIndex]);
 
     return (
-        <div className={shared.quizContainer}>
-            {entityIndex >= fetchedEntries.length && fetchedEntries.length > 0 ? (
+        <div className={styles.layout}>
+            {entityIndex >= fetchedEntities.length && fetchedEntities.length > 0 ? (
                 <QuizEnd
                     fetchData={fetchData}
                     score={score} />
             ) : (
                 <div>
-                    <h3 className={entity ? `${shared.quizQuestion} ${shared[applyDifficultyStyle(entity.difficulty)]}` : styles.quizQuestion}>
+                    <h3 className={entity ? `${shared.quizQuestion} ${shared[applyDifficultyStyle(entity.difficulty)]}` : shared.quizQuestion}>
                         {entity ? decodeHtml(entity.question) : (
                             <QuizStart
                                 category={category}

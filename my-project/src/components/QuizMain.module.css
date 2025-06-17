@@ -1,17 +1,4 @@
-.quizQuestion {
-  color: #fefae0;
-  background-color: #2f6370;
-  padding: 30px;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  width: 1000px;
-  text-align: center;
-  font-size: x-large;
-}
-
 .multipleChoiceGrid {
-  background-color: #2f6370;
   text-align: center;
   padding: 30px;
   border-radius: 1rem;
@@ -22,7 +9,6 @@
 }
 
 .booleanChoiceGrid {
-  background-color: #2f6370;
   text-align: center;
   padding: 30px;
   border-radius: 1rem;

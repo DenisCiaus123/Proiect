@@ -14,3 +14,26 @@
   background-color: #fefae0;
   border-radius: 1rem;
 }
+
+.startQuizButton {
+  color: #fefae0;
+  background-color: #3C3F58;
+  border-radius: 15px;
+  padding: 10px 30px;
+  margin: 0 10px;
+  text-align: center;
+  border-color: #fefae0;
+  transition-duration: 0.3s;
+  width: 200px;
+}
+
+.startQuizButton:hover {
+  box-shadow: 0 2px 6px 0 #3c3f5877, 0 7px 15px 0 #54587c65;
+  background-color: #5A7D9A;
+  cursor: pointer;
+}
+
+.startQuizButton:active {
+  transform: translateY(4px);
+  background-color: #3C3F58;
+}

@@ -1,4 +1,4 @@
-.footer-list {
+.footerList {
     padding: 20px;
     text-align: center;
     color:  #fefae0;
@@ -6,22 +6,22 @@
     list-style-type: none;
 }
 
-.footer-link:link, .footer-link:visited {
+.footerLink:link, .footerLink:visited {
     color:  #fefae0;
     text-decoration: none;
 }
 
-.footer-link:visited {
+.footerLink:visited {
     color:  #ffd45e;
     text-decoration: none;
 }
 
-.footer-link:hover{
+.footerLink:hover{
     color:  #fefae0;
     text-decoration: underline;
 }
 
-.footer-link:active{
+.footerLink:active{
     color:  #2a9d90;
     text-decoration: none;
 }

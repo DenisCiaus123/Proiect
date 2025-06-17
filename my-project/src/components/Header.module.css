@@ -6,25 +6,25 @@
     background-color: #2f6370;
 }
 
-.navbar-logo {
+.navbarLogo {
     padding: 20px ;
 }
 
-.logo-img {
+.logoImg {
     height: auto;
     width: auto;
     max-width: 50px;
     max-height: 50px;
 }
 
-.title-container {
+.titleContainer {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
     margin-top: -8px;
 }
 
-.navbar-title {
+.navbarTitle {
     text-align:left;
     color: #fefae0;
     line-height:1;
@@ -33,7 +33,7 @@
     font-size: 30px;
 }
 
-.navbar-subtitle {
+.navbarSubtitle {
     color: rgb(254,250,224);
     margin: 0;
     padding: 0;

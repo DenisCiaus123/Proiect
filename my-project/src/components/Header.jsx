@@ -3,12 +3,12 @@ import styles from './Header.module.css';
 export const Header = ({ title, subtitle, logo }) => {
     return (
         <nav className={styles.navbar}>
-            <div className={styles["navbar-logo"]}>
-                <img src={logo} alt="Logo" className={styles["logo-img"]}/>
+            <div className={styles.navbarLogo}>
+                <img src={logo} alt="Logo" className={styles.logoImg}/>
             </div>
-            <div className={styles["title-container"]}>
-                <h1 className={styles["navbar-title"]}>{title}</h1>
-                <h2 className={styles["navbar-subtitle"]}>{subtitle}</h2>
+            <div className={styles.titleContainer}>
+                <h1 className={styles.navbarTitle}>{title}</h1>
+                <h2 className={styles.navbarSubtitle}>{subtitle}</h2>
             </div>
         </nav>
     );
