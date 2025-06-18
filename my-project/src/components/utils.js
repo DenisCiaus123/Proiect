@@ -20,7 +20,7 @@ export function addPoints(type, difficulty) {
     if (difficulty === "easy") points += 1;
     else if (difficulty === "medium") points += 2;
     else points += 3;
-    return points;
+    return points * 10;
 }
 
 export function applyDifficultyStyle(difficulty) {

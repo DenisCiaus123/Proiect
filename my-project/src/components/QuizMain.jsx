@@ -25,9 +25,9 @@ export const QuizMain = ({ entity, setEntityIndex, score, setScore }) => {
     return (
         <>
             <div className={`${styles.card} ${styles[applyDifficultyStyle(entity.difficulty)]}`}>
-                <h3 className={shared.quizQuestion}>
-                    {decodeHtml(entity.question)}
-                </h3>
+                <div className={styles.questionContainer}>
+                    <h3 className={shared.quizQuestion}>{decodeHtml(entity.question)}</h3>
+                </div>
 
                 <div className={entity.type === "multiple" ? styles.multipleChoiceGrid : styles.booleanChoiceGrid}>
                     {answers.map((answer, index) => (

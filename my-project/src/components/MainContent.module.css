@@ -6,4 +6,8 @@
   align-items: center;
   overflow: auto;
   gap: 10px;
+  background-image: url("../images/background_default.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
