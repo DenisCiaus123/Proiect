@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import shared from "./styles/Shared.module.css";
 import styles from "./MainContent.module.css";
-import { decodeHtml, applyDifficultyStyle } from "./utils";
-import {QuizStart} from "./QuizStart";
-import {QuizMain} from "./QuizMain";
-import {QuizEnd} from "./QuizEnd";
+import { QuizStart } from "./QuizStart";
+import { QuizMain } from "./QuizMain";
+import { QuizEnd } from "./QuizEnd";
 
 export const MainContent = () => {
     const [loading, setLoading] = useState(false);
@@ -56,26 +54,26 @@ export const MainContent = () => {
                     score={score} />
             ) : (
                 <div>
-                    <h3 className={entity ? `${shared.quizQuestion} ${shared[applyDifficultyStyle(entity.difficulty)]}` : shared.quizQuestion}>
-                        {entity ? decodeHtml(entity.question) : (
+                    <>
+                        {!entity ? (
                             <QuizStart
                                 category={category}
                                 setCategory={setCategory}
                                 difficulty={difficulty}
                                 setDifficulty={setDifficulty}
                                 fetchData={fetchData}
-                                loading={loading} />
+                                loading={loading}
+                            />
+                        ) : (
+                            <QuizMain
+                                entity={entity}
+                                setEntityIndex={setEntityIndex}
+                                score={score}
+                                setScore={setScore}
+                            />
                         )}
-                    </h3>
+                    </>
                 </div>
-            )}
-
-            {entity && (
-                <QuizMain
-                    entity={entity}
-                    setEntityIndex={setEntityIndex}
-                    score={score}
-                    setScore={setScore} />
             )}
         </div>
     );

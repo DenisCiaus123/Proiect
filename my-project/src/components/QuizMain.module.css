@@ -1,18 +1,23 @@
-.multipleChoiceGrid {
-  text-align: center;
-  padding: 30px;
+.card {
   border-radius: 1rem;
-  display: grid;
-  grid-template-columns: auto auto;
-  row-gap: 20px;
+  padding: 30px;
   width: 1000px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.multipleChoiceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .booleanChoiceGrid {
-  text-align: center;
-  padding: 30px;
-  border-radius: 1rem;
-  width: 1000px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .answerButton {
@@ -41,11 +46,44 @@
 .scorePanel {
   color: #fefae0;
   background-color: #3C3F58;
-  margin: 20px;
+  margin: 20px auto;
   padding: 20px;
   border-radius: 1rem;
   font-size: x-large;
   font-weight: bold;
   width: 500px;
   text-align: center;
+}
+
+.easy {
+  /* Pale green glassmorphism */
+  background: rgba(144, 238, 144, 0.7); /* lightgreen with transparency */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(144, 238, 144, 0.2); /* matching border */
+  box-shadow: 0 5px 15px rgba(144, 238, 144, 0.2); /* pale green glow */
+  color: #e6ffe6; /* soft white-green text */
+}
+
+
+.medium {
+
+  /* Pale orange glassmorphism */
+  background: rgba(255, 200, 150, 0.7); /* soft orange tint */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 200, 150, 0.2); /* matching border */
+  box-shadow: 0 5px 15px rgba(255, 200, 150, 0.2); /* orange glow */
+  color: #fff7f0; /* very light orange-white text for contrast */
+
+}
+
+.hard {
+  /* Pale red glassmorphism */
+  background: rgba(255, 192, 203, 0.7); /* lightpink with transparency */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 192, 203, 0.2);
+  box-shadow: 0 5px 15px rgba(255, 105, 135, 0.2); /* subtle warm glow */
+  color: #ffeaea; /* soft pale pink text */
 }
