@@ -57,6 +57,8 @@ export const QuizStart = ({ category, setCategory, difficulty, setDifficulty, fe
             </div>
             
             <select
+                name="category"
+                id="category"
                 className={styles.categoryDropdown}
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
