@@ -83,6 +83,11 @@ export const QuizStart = ({ category, setCategory, difficulty, setDifficulty, fe
                 <option value="25">Art</option>
                 <option value="26">Celebrities</option>
                 <option value="27">Animals</option>
+                <option value="28">Vehicles</option>
+                <option value="29">Entertainment: Comics</option>
+                <option value="30">Science: Gadgets</option>
+                <option value="31">Entertainment: Japanese Anime & Manga</option>
+                <option value="32">Entertainment: Cartoon & Animations</option>
             </select>
 
             <button className={styles.startQuizButton} onClick={fetchData}>Start Quiz</button>
