@@ -14,6 +14,14 @@ export const MainContent = () => {
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
 
+    const resetQuiz = () => {
+        setfetchedEntities([]);
+        setEntity(null);
+        setEntityIndex(0);
+        setScore(0);
+    };
+
+
     const fetchData = async () => {
         if (loading) return;
         setLoading(true);
@@ -50,7 +58,7 @@ export const MainContent = () => {
         <div className={styles.layout}>
             {entityIndex >= fetchedEntities.length && fetchedEntities.length > 0 ? (
                 <QuizEnd
-                    fetchData={fetchData}
+                    resetQuiz={resetQuiz}
                     score={score} />
             ) : (
                 <div>
