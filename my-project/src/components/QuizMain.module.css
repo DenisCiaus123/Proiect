@@ -109,9 +109,11 @@
 
 .categorySymbol {
   width: auto;
-  height: 70px;
+  height: 60px;
   margin-left:20px;
   margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .bar {
