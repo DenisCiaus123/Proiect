@@ -18,7 +18,7 @@ export const MainContent = () => {
         if (loading) return;
         setLoading(true);
         try {
-            let url = `https://opentdb.com/api.php?amount=50`;
+            let url = `https://opentdb.com/api.php?amount=10`;
             if (category) {
                 url += `&category=${category}`;
             }

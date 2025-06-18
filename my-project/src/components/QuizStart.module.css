@@ -1,34 +1,77 @@
+.customRadio input[type="radio"] {
+  display: none;
+}
+
+.customRadio .radioMark {
+  height: 16px;
+  width: 16px;
+  border: 2px solid #fefae07e;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: middle;
+  position: relative;
+}
+
+.customRadio input[type="radio"]:checked + .radioMark::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #fefae0;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+.customRadio input[type="radio"]:focus + .radioMark {
+  box-shadow: 0 0 2px 2px #fefae0;
+}
+
+.customRadio:hover .radioMark {
+  border-color: #fefae0;
+}
+
+
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  background-color: #2f6370;
-  padding: 40px;
+  gap: 10px;
+  padding: 30px;
   border-radius: 1rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: #10274488;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid #062763ad;
+  box-shadow: 0 5px 15px #4d799233;
+  color: #3C3F58;
   width: 500px;
   margin: auto;
+  overflow: visible;
 }
 
 .categoryDropdown {
   font-size: 16px;
   padding: 10px;
   border-radius: 10px;
+  margin-top: 5px;
   margin-bottom: 20px;
-  width: 300px;
   background-color: #3C3F58;
   color: #fefae0;
   border: 1px solid #fefae0;
+  text-align: center;
+  top:100%;
+  bottom:auto;
 }
 
 .difficultySelector {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 8px;
-  margin: 20px 0;
   color: #fefae0;
+  gap:5px;
+  font-size:24px;
 }
 
 .difficultyLabel {
@@ -40,10 +83,10 @@
   color: #fefae0;
   background-color: #3C3F58;
   border-radius: 15px;
-  padding: 10px 30px;
+  padding: 10px 20px;
   margin: 0 10px;
   text-align: center;
-  border-color: #fefae0;
+  border:1px solid #fefae0;
   transition-duration: 0.3s;
   width: 200px;
 }
@@ -57,5 +100,4 @@
 .startQuizButton:active {
   transform: translateY(4px);
   background-color: #3C3F58;
-  cursor: wait;
 }

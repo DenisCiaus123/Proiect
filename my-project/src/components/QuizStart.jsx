@@ -3,6 +3,59 @@ import styles from "./QuizStart.module.css";
 export const QuizStart = ({ category, setCategory, difficulty, setDifficulty, fetchData }) => {
     return (
         <div className={styles.card}>
+            
+            <div className={styles.difficultySelector}>
+                <span className={styles.difficultyLabel}>Difficulty:</span>
+
+                <label className={styles.customRadio}>
+                    <input
+                        type="radio"
+                        name="difficulty"
+                        value=""
+                        checked={difficulty === ""}
+                        onChange={(e) => setDifficulty(e.target.value)}
+                    />
+                    <span className={styles.radioMark}></span>
+                    Mixed
+                </label>
+
+                <label className={styles.customRadio}>
+                    <input
+                        type="radio"
+                        name="difficulty"
+                        value="easy"
+                        checked={difficulty === "easy"}
+                        onChange={(e) => setDifficulty(e.target.value)}
+                    />
+                    <span className={styles.radioMark}></span>
+                    Easy
+                </label>
+
+                <label className={styles.customRadio}>
+                    <input
+                        type="radio"
+                        name="difficulty"
+                        value="medium"
+                        checked={difficulty === "medium"}
+                        onChange={(e) => setDifficulty(e.target.value)}
+                    />
+                    <span className={styles.radioMark}></span>
+                    Medium
+                </label>
+
+                <label className={styles.customRadio}>
+                    <input
+                        type="radio"
+                        name="difficulty"
+                        value="hard"
+                        checked={difficulty === "hard"}
+                        onChange={(e) => setDifficulty(e.target.value)}
+                    />
+                    <span className={styles.radioMark}></span>
+                    Hard
+                </label>
+            </div>
+            
             <select
                 className={styles.categoryDropdown}
                 value={category}
@@ -29,54 +82,6 @@ export const QuizStart = ({ category, setCategory, difficulty, setDifficulty, fe
                 <option value="26">Celebrities</option>
                 <option value="27">Animals</option>
             </select>
-
-            <div className={styles.difficultySelector}>
-                <span className={styles.difficultyLabel}>Difficulty:</span>
-
-                <label>
-                    <input
-                        type="radio"
-                        name="difficulty"
-                        value=""
-                        checked={difficulty === ""}
-                        onChange={(e) => setDifficulty(e.target.value)}
-                    />
-                    Mixed
-                </label>
-
-                <label>
-                    <input
-                        type="radio"
-                        name="difficulty"
-                        value="easy"
-                        checked={difficulty === "easy"}
-                        onChange={(e) => setDifficulty(e.target.value)}
-                    />
-                    Easy
-                </label>
-
-                <label>
-                    <input
-                        type="radio"
-                        name="difficulty"
-                        value="medium"
-                        checked={difficulty === "medium"}
-                        onChange={(e) => setDifficulty(e.target.value)}
-                    />
-                    Medium
-                </label>
-
-                <label>
-                    <input
-                        type="radio"
-                        name="difficulty"
-                        value="hard"
-                        checked={difficulty === "hard"}
-                        onChange={(e) => setDifficulty(e.target.value)}
-                    />
-                    Hard
-                </label>
-            </div>
 
             <button className={styles.startQuizButton} onClick={fetchData}>Start Quiz</button>
         </div>

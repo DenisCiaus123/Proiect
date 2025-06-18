@@ -16,12 +16,12 @@ footer {
 }
 
 .quizQuestion {
-  color: #fefae0;
-  padding: 30px;
+  padding: 0px;
+  margin: 20px 5px;
   border-radius: 1rem;
   display: flex;
-  flex-direction: column;
-  width: 1000px;
-  text-align: center;
-  font-size: x-large;
+  flex-direction: row;
+  width: auto;
+  justify-content: center;
+  font-size: 1.7rem;
 }
