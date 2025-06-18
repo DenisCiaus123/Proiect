@@ -23,7 +23,7 @@ export const QuizMain = ({ entity, setEntityIndex, score, setScore }) => {
         setEntityIndex(prev => prev + 1);
     };
 
-    const symbolSrc = categorySymbols[entity.category] || "src/images/categories/symbol_any.png";
+    const symbolSrc = categorySymbols[decodeHtml(entity.category)] || "src/images/categories/symbol_any.png";
 
     return (
         <>
