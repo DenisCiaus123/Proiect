@@ -78,6 +78,7 @@ export const MainContent = () => {
                                 setEntityIndex={setEntityIndex}
                                 score={score}
                                 setScore={setScore}
+                                category={category}
                             />
                         )}
                     </>

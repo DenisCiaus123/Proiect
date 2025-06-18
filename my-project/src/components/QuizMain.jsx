@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "./QuizMain.module.css";
 import shared from "./styles/Shared.module.css";
+import { categorySymbols } from "./CategorySymbols";
 
 import { decodeHtml, addPoints, shuffle, applyDifficultyStyle } from "./utils";
 
-export const QuizMain = ({ entity, setEntityIndex, score, setScore }) => {
+export const QuizMain = ({ entity, setEntityIndex, score, setScore, category }) => {
     const [answers, setAnswers] = useState([]);
 
     useEffect(() => {
@@ -22,10 +23,14 @@ export const QuizMain = ({ entity, setEntityIndex, score, setScore }) => {
         setEntityIndex(prev => prev + 1);
     };
 
+    const symbolSrc = categorySymbols[category] || "src/images/logo_light.png";
+
     return (
         <>
             <div className={`${styles.card} ${styles[applyDifficultyStyle(entity.difficulty)]}`}>
                 <div className={styles.questionContainer}>
+                    <img src={symbolSrc} alt="Category Symbol" className={styles.categorySymbol}/>
+                    <div className={styles.bar}/>
                     <h3 className={shared.quizQuestion}>{decodeHtml(entity.question)}</h3>
                 </div>
 
