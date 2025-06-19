@@ -29,7 +29,7 @@
 
 .answerButton {
   color: #fefae0;
-  background-color: #3C3F58;
+  background-color: #3c3f58;
   border-radius: 15px;
   padding: 10px 30px;
   margin: 0 10px;
@@ -41,18 +41,18 @@
 
 .answerButton:hover {
   box-shadow: 0 2px 6px 0 #3c3f5877, 0 7px 15px 0 #54587c65;
-  background-color: #5A7D9A;
+  background-color: #5a7d9a;
   cursor: pointer;
 }
 
 .answerButton:active {
   transform: translateY(4px);
-  background-color: #3C3F58;
+  background-color: #3c3f58;
 }
 
 .scorePanel {
   color: #fefae0;
-  background-color: #3C3F58;
+  background-color: #3c3f58;
   margin: 20px auto;
   padding: 20px;
   border-radius: 1rem;
@@ -68,9 +68,8 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid #066306ad;
   box-shadow: 0 5px 15px #4d924d33;
-  color: #3C3F58;
+  color: #3c3f58;
 }
-
 
 .medium {
   background: #a5570d52;
@@ -78,8 +77,7 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid #e97e1bad;
   box-shadow: 0 5px 15px #ffc89633;
-  color: #3C3F58;
-
+  color: #3c3f58;
 }
 
 .hard {
@@ -88,19 +86,19 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid #ac1e358c;
   box-shadow: 0 5px 15px #ff698733;
-  color: #3C3F58;
+  color: #3c3f58;
 }
 
 .questionContainer {
   color: #fefae0;
-  background-color: #3C3F58;
+  background-color: #3c3f58;
   border-radius: 15px;
   padding: auto;
   margin: 0 5px;
   text-align: center;
   border: 1px solid #fefae0;
   transition-duration: 0.3s;
-  width:auto;
+  width: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -110,7 +108,7 @@
 .categorySymbol {
   width: auto;
   height: 60px;
-  margin-left:20px;
+  margin-left: 20px;
   margin-right: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -121,5 +119,14 @@
   width: 2px;
   height: 50px;
   margin: 0 10px;
-  min-width: 2px
+  min-width: 2px;
+}
+
+.correct {
+  background-color: #4caf50 !important;
+  color: white;
+}
+.incorrect {
+  background-color: #f44336 !important;
+  color: white;
 }
