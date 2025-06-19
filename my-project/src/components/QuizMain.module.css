@@ -130,3 +130,15 @@
   background-color: #f44336 !important;
   color: white;
 }
+.restButtons {
+  background-color: #3c3f58 !important;
+  color: white;
+}
+
+.answerButton.restButtons:hover,
+.answerButton.correct:hover,
+.answerButton.incorrect:hover {
+  box-shadow: none;
+  background-color: inherit;
+  cursor: default;
+}
