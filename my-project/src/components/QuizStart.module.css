@@ -32,7 +32,6 @@
   border-color: #fefae0;
 }
 
-
 .card {
   display: flex;
   flex-direction: column;
@@ -45,7 +44,7 @@
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid #062763ad;
   box-shadow: 0 5px 15px #4d799233;
-  color: #3C3F58;
+  color: #3c3f58;
   width: 500px;
   margin: auto;
   overflow: visible;
@@ -57,12 +56,12 @@
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 20px;
-  background-color: #3C3F58;
+  background-color: #3c3f58;
   color: #fefae0;
   border: 1px solid #fefae0;
   text-align: center;
-  top:100%;
-  bottom:auto;
+  top: 100%;
+  bottom: auto;
 }
 
 .difficultySelector {
@@ -70,8 +69,8 @@
   flex-direction: row;
   align-items: flex-start;
   color: #fefae0;
-  gap:5px;
-  font-size:24px;
+  gap: 5px;
+  font-size: 24px;
 }
 
 .difficultyLabel {
@@ -81,23 +80,43 @@
 
 .startQuizButton {
   color: #fefae0;
-  background-color: #3C3F58;
+  background-color: #3c3f58;
   border-radius: 15px;
   padding: 10px 20px;
   margin: 0 10px;
   text-align: center;
-  border:1px solid #fefae0;
+  border: 1px solid #fefae0;
   transition-duration: 0.3s;
   width: 200px;
 }
 
 .startQuizButton:hover {
   box-shadow: 0 2px 6px 0 #3c3f5877, 0 7px 15px 0 #54587c65;
-  background-color: #5A7D9A;
+  background-color: #5a7d9a;
   cursor: pointer;
 }
 
 .startQuizButton:active {
   transform: translateY(4px);
-  background-color: #3C3F58;
+  background-color: #3c3f58;
+}
+
+.amountLabel {
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85); /* slightly transparent white */
+  text-align: center;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.amountInput {
+  font-size: 16px;
+  background-color: rgba(238, 225, 225, 0.85); /* slightly transparent white */
+  text-align: center;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px;
 }

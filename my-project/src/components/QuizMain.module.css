@@ -142,3 +142,11 @@
   background-color: inherit;
   cursor: default;
 }
+
+.resetQuizButton {
+  color: #fefae0;
+  background-color: #3c3f58;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 0;
+}

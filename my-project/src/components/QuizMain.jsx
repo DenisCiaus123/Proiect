@@ -5,7 +5,15 @@ import { categorySymbols } from "./CategorySymbols";
 
 import { decodeHtml, addPoints, shuffle, applyDifficultyStyle } from "./utils";
 
-export const QuizMain = ({ entity, setEntityIndex, score, setScore }) => {
+export const QuizMain = ({
+  entity,
+  setEntityIndex,
+  score,
+  setScore,
+  entityIndex,
+  totalQuestions,
+  restartQuizSameSettings,
+}) => {
   const [answers, setAnswers] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
@@ -81,10 +89,19 @@ export const QuizMain = ({ entity, setEntityIndex, score, setScore }) => {
             </button>
           ))}
         </div>
-
+        <span>
+          Question Number: {entityIndex + 1} of {totalQuestions}
+        </span>
         <div className={styles.scorePanel}>
-          <span>Score: </span>
-          <span>{score}</span>
+          <span>Score: {score}</span>
+          <div>
+            <button
+              className={styles.resetQuizButton}
+              onClick={restartQuizSameSettings}
+            >
+              Restart Quiz
+            </button>
+          </div>
         </div>
       </div>
     </>
