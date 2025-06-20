@@ -4,6 +4,7 @@ import styles from "./MainContent.module.css";
 import { QuizStart } from "./QuizStart";
 import { QuizMain } from "./QuizMain";
 import { QuizEnd } from "./QuizEnd";
+import { ErrorBanner } from "./ErrorBanner";
 import loadingDot from "../images/loadingDot.gif";
 
 export const MainContent = () => {
@@ -15,6 +16,7 @@ export const MainContent = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [amount, setAmount] = useState(15);
+  const [catchedError, setCatchedError] = useState(null);
 
   const resetQuiz = () => {
     setfetchedEntities([]);
@@ -51,12 +53,29 @@ export const MainContent = () => {
       const response = await axios.get(url);
       setfetchedEntities(response.data.results);
       setEntity(response.data.results[0]);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally {
+    }
+
+    catch (error) {
+      if (axios.isAxiosError(error) && error.response?.status === 429) {
+        setCatchedError("Too many requests! Try in few seconds!");
+      }
+      else {
+        setCatchedError("Ups! Something went wrong!");
+      }
+    }
+
+    finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (catchedError) {
+      setTimeout(() => {
+        setCatchedError(null);
+      }, 1000);
+    }
+  }, [catchedError]);
 
   useEffect(() => {
     if (fetchedEntities.length > 0 && entityIndex < fetchedEntities.length) {
@@ -105,8 +124,14 @@ export const MainContent = () => {
               />
             )}
           </>
+
         </div>
+
       )}
+      <>
+        {catchedError && (<ErrorBanner catchedError={catchedError} />)}
+      </>
+
     </div>
   );
 };
