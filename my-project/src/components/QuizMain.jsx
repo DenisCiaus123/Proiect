@@ -54,9 +54,7 @@ export const QuizMain = ({
     if (!showResult) return styles.answerButton;
     if (answer === decodeHtml(entity.correct_answer))
       return `${styles.answerButton} ${styles.correct}`;
-    if (answer === selectedAnswer)
-      return `${styles.answerButton} ${styles.incorrect}`;
-    return `${styles.answerButton} ${styles.restButtons}`;
+    return `${styles.answerButton} ${styles.incorrect}`;
   };
   const symbolSrc =
     categorySymbols[decodeHtml(entity.category)] ||
