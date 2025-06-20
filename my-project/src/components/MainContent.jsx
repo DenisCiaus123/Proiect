@@ -4,6 +4,7 @@ import styles from "./MainContent.module.css";
 import { QuizStart } from "./QuizStart";
 import { QuizMain } from "./QuizMain";
 import { QuizEnd } from "./QuizEnd";
+import loadingDot from "../images/loadingDot.gif";
 
 export const MainContent = () => {
   const [loading, setLoading] = useState(false);
@@ -66,7 +67,12 @@ export const MainContent = () => {
   }, [entityIndex]);
 
   if (loading) {
-    return <div className={styles.loadingScreen}>Loading...</div>;
+    return (
+      <div className={styles.loadingScreen}>
+        <span style={{ margin: "16px 0" }}>Loading</span>
+        <img src={loadingDot} alt="..." className={styles.dot} />
+      </div>
+    );
   }
   return (
     <div className={styles.layout}>

@@ -100,18 +100,34 @@ export const QuizStart = ({
         <span className={styles.amountLabel}>Number of questions: </span>
         <input
           type="number"
-          min={5}
-          max={25}
           placeholder="15"
           value={amount}
-          onChange={(e) =>
-            setAmount(e.target.value === "" ? "" : Number(e.target.value))
-          }
+          onChange={(e) => {
+            const val = e.target.value;
+            if (val === "") {
+              setAmount("");
+            } else {
+              setAmount(Number(val));
+            }
+          }}
+          onBlur={() => {
+            if (amount === "" || amount < 5) setAmount(5);
+            else if (amount > 25) setAmount(25);
+          }}
           className={styles.amountInput}
         ></input>
         <span className={styles.amountLabel}> (5-25) </span>
       </div>
-      <button className={styles.startQuizButton} onClick={fetchData}>
+      <button
+        className={styles.startQuizButton}
+        onClick={() => {
+          let validAmount = amount;
+          if (amount === "" || amount < 5) validAmount = 5;
+          if (amount > 25) validAmount = 25;
+          setAmount(validAmount);
+          fetchData();
+        }}
+      >
         Start Quiz
       </button>
     </div>
