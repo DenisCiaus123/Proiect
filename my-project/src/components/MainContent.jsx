@@ -13,7 +13,7 @@ export const MainContent = () => {
   const [score, setScore] = useState(0);
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const [amount, setAmount] = useState(10);
+  const [amount, setAmount] = useState(15);
 
   const resetQuiz = () => {
     setfetchedEntities([]);

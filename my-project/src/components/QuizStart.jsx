@@ -11,18 +11,6 @@ export const QuizStart = ({
 }) => {
   return (
     <div className={styles.card}>
-      <span className={styles.amountLabel}>Amount of questions:</span>
-      <select
-        className={styles.categoryDropdown}
-        value={amount}
-        onChange={(e) => setAmount(Number(e.target.value))}
-      >
-        <option value={5}>5</option>
-        <option value={10}>10</option>
-        <option value={15}>15</option>
-        <option value={20}>20</option>
-        <option value={25}>25</option>
-      </select>
       <div className={styles.difficultySelector}>
         <span className={styles.difficultyLabel}>Difficulty:</span>
 
@@ -108,7 +96,21 @@ export const QuizStart = ({
         <option value="31">Entertainment: Japanese Anime & Manga</option>
         <option value="32">Entertainment: Cartoon & Animations</option>
       </select>
-
+      <div className="numberOfQuestionsContainer">
+        <span className={styles.amountLabel}>Number of questions: </span>
+        <input
+          type="number"
+          min={5}
+          max={25}
+          placeholder="15"
+          value={amount}
+          onChange={(e) =>
+            setAmount(e.target.value === "" ? "" : Number(e.target.value))
+          }
+          className={styles.amountInput}
+        ></input>
+        <span className={styles.amountLabel}> (5-25) </span>
+      </div>
       <button className={styles.startQuizButton} onClick={fetchData}>
         Start Quiz
       </button>
