@@ -73,7 +73,7 @@ export const MainContent = () => {
     if (catchedError) {
       setTimeout(() => {
         setCatchedError(null);
-      }, 1000);
+      }, 3000);
     }
   }, [catchedError]);
 
