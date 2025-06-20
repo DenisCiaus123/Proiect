@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import styles from "./QuizMain.module.css";
 import shared from "./styles/Shared.module.css";
 import { categorySymbols } from "./CategorySymbols";
-import { playSounds, toggleMute } from "./utils";
+import { playSounds } from "./utils";
+import volumeOn from "../images/volumeOn.png";
+import volumeOff from "../images/volumeOff.png";
 
 import { decodeHtml, addPoints, shuffle, applyDifficultyStyle } from "./utils";
 
@@ -14,6 +16,8 @@ export const QuizMain = ({
   entityIndex,
   totalQuestions,
   restartQuizSameSettings,
+  isMuted,
+  toggleMute,
 }) => {
   const [answers, setAnswers] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -37,10 +41,10 @@ export const QuizMain = ({
     setSelectedAnswer(answerText);
     setShowResult(true);
     if (entity.correct_answer === answerText) {
-      playSounds("/sounds/correct.mp3");
+      playSounds("/sounds/correct.mp3", isMuted);
       setScore((prev) => prev + addPoints(entity.type, entity.difficulty));
     } else {
-      playSounds("/sounds/wrong.mp3");
+      playSounds("/sounds/wrong.mp3", isMuted);
     }
     setTimeout(() => {
       setEntityIndex((prev) => prev + 1);
@@ -60,7 +64,14 @@ export const QuizMain = ({
 
   return (
     <>
-      <button onClick={toggleMute}>Toggle Mute</button>
+      <button onClick={toggleMute} className={styles.muteButton}>
+        <img
+          src={isMuted ? volumeOff : volumeOn}
+          alt={isMuted ? "Unmute" : "Mute"}
+          width={40}
+          height={40}
+        />
+      </button>
       <div
         className={`${styles.card} ${
           styles[applyDifficultyStyle(entity.difficulty)]

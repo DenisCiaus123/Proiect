@@ -38,13 +38,10 @@ export function applyDifficultyStyle(difficulty) {
       return "easy";
   }
 }
-let isMuted = false;
-export function toggleMute() {
-  isMuted = !isMuted;
-}
+
 let backgroundAudio = null;
 
-export function startBackgroundSound() {
+export function startBackgroundSound(isMuted) {
   if (backgroundAudio) return;
   if (isMuted) return;
   backgroundAudio = new Audio("/sounds/timer.mp3");
@@ -61,7 +58,7 @@ export function stopBackgroundSound() {
   }
 }
 
-export function playSounds(src) {
+export function playSounds(src, isMuted) {
   if (isMuted) return;
   const sound = new Audio(src);
   sound.currentTime = 0;

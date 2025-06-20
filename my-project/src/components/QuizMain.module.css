@@ -158,3 +158,13 @@
   font-weight: bold;
   text-align: center;
 }
+
+.muteButton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
