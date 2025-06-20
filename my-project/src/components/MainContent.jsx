@@ -65,6 +65,9 @@ export const MainContent = () => {
     }
   }, [entityIndex]);
 
+  if (loading) {
+    return <div className={styles.loadingScreen}>Loading...</div>;
+  }
   return (
     <div className={styles.layout}>
       {entityIndex >= fetchedEntities.length && fetchedEntities.length > 0 ? (

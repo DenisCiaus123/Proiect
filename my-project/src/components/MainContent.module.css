@@ -7,7 +7,15 @@
   overflow: auto;
   gap: 10px;
   background-image: url("../images/background_default.png");
-  background-size:cover;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.loadingScreen {
+  color: #fefae0;
+  background: #3c3f58;
+  font-size: 2rem;
+  text-align: center;
+  padding: 100px 0;
 }
