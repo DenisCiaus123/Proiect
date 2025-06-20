@@ -26,3 +26,14 @@
   font-size: 4rem;
   z-index: 9999;
 }
+
+.loadingGif {
+  margin: 16px;
+}
+.dot {
+  width: auto;
+  height: 25px; /* or whatever original height is */
+  image-rendering: auto;
+  margin-top: 26px;
+  display: block;
+}
