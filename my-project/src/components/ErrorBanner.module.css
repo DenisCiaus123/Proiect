@@ -1,0 +1,25 @@
+.errorBanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(220, 53, 69, 1);
+  color: #fffbea;
+  text-align: center;
+  padding: 20px 16px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  z-index: 10000;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.1s ease-out;
+}
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
