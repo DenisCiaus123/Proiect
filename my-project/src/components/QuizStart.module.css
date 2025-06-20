@@ -13,7 +13,7 @@
   position: relative;
 }
 
-.customRadio input[type="radio"]:checked + .radioMark::after {
+.customRadio input[type="radio"]:checked+.radioMark::after {
   content: "";
   width: 8px;
   height: 8px;
@@ -24,7 +24,7 @@
   left: 4px;
 }
 
-.customRadio input[type="radio"]:focus + .radioMark {
+.customRadio input[type="radio"]:focus+.radioMark {
   box-shadow: 0 0 2px 2px #fefae0;
 }
 
@@ -80,10 +80,10 @@
 
 .startQuizButton {
   color: #fefae0;
-  background-color: #3c3f58;
+  background-color: #2a7a66;
   border-radius: 15px;
   padding: 10px 20px;
-  margin: 0 10px;
+  margin: 2rem 10px;
   text-align: center;
   border: 1px solid #fefae0;
   transition-duration: 0.3s;
@@ -101,22 +101,49 @@
   background-color: #3c3f58;
 }
 
+.numberOfQuestionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .amountLabel {
   font-family: "Georgia", serif;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.85); /* slightly transparent white */
+  font-size: 24px;
+  color: rgba(255, 255, 255, 1);
   text-align: center;
-  display: block;
-  margin-bottom: 8px;
+  display: inline-block;
+  margin-bottom: 0;
   letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
+
 .amountInput {
-  font-size: 16px;
-  background-color: rgba(238, 225, 225, 0.85); /* slightly transparent white */
+  font-size: 18px;
+  background-color: #3c3f58;
+  color: #fefae0;
+  border: 1px solid #fefae0;
+  border-radius: 6px;
+  padding: 6px 0;
   text-align: center;
-  display: block;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-  text-shadow: 0 1px 2px;
+  width: 50px;
+  line-height: 1.4;
+  height: auto;
+  box-shadow: none;
+  -moz-appearance: textfield;
 }
+
+
+
+.amountInput::-webkit-outer-spin-button,
+.amountInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.amountInput:focus {
+  outline: none;
+  box-shadow: 0 0 4px 2px #fefae0;
+}
+
+
