@@ -64,6 +64,7 @@ export const MainContent = () => {
       setEntity(null);
     }
   }, [entityIndex]);
+
   if (loading) {
     return <div className={styles.loadingScreen}>Loading...</div>;
   }
