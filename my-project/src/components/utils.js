@@ -44,7 +44,7 @@ let backgroundAudio = null;
 export function startBackgroundSound(isMuted) {
   if (backgroundAudio) return;
   if (isMuted) return;
-  backgroundAudio = new Audio("/sounds/timer.mp3");
+  backgroundAudio = new Audio("/sounds/timer.mp3", isMuted);
   backgroundAudio.loop = true;
   backgroundAudio.volume = 0.4;
   backgroundAudio.play().catch(console.warn);
