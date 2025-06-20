@@ -3,18 +3,18 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(220, 53, 69, 0.95); /* red-ish like Bootstrap danger */
+  background-color: rgba(220, 53, 69, 1);
   color: #fffbea;
   text-align: center;
-  padding: 12px 16px;
-  font-size: 1.2rem;
-  font-weight: 500;
+  padding: 20px 16px;
+  font-size: 1.5rem;
+  font-weight: 700;
   z-index: 10000;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.3s ease-out;
+  animation: slideUp 0.1s ease-out;
 }
 
-/* Optional slide-up animation */
+
 @keyframes slideUp {
   from {
     transform: translateY(100%);
