@@ -15,6 +15,7 @@ export const MainContent = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [amount, setAmount] = useState(15);
+  const [showLoader, setShowLoader] = useState(false);
 
   const resetQuiz = () => {
     setfetchedEntities([]);
@@ -59,6 +60,15 @@ export const MainContent = () => {
   };
 
   useEffect(() => {
+    if (loading) {
+      setShowLoader(true);
+    } else {
+      const timeout = setTimeout(() => setShowLoader(false), 500);
+      return () => clearTimeout(timeout);
+    }
+  }, [loading]);
+
+  useEffect(() => {
     if (fetchedEntities.length > 0 && entityIndex < fetchedEntities.length) {
       setEntity(fetchedEntities[entityIndex]);
     } else if (entityIndex >= fetchedEntities.length) {
@@ -66,16 +76,18 @@ export const MainContent = () => {
     }
   }, [entityIndex]);
 
-  if (loading) {
-    return (
-      <div className={styles.loadingScreen}>
-        <span style={{ margin: "16px 0" }}>Loading</span>
-        <img src={loadingDot} alt="..." className={styles.dot} />
-      </div>
-    );
-  }
   return (
     <div className={styles.layout}>
+      {showLoader && (
+        <div
+          className={`${styles.loadingScreen} ${
+            loading ? styles.visible : styles.hidden
+          }`}
+        >
+          <span style={{ margin: "16px 0" }}>Loading</span>
+          <img src={loadingDot} alt="..." className={styles.dot} />
+        </div>
+      )}
       {entityIndex >= fetchedEntities.length && fetchedEntities.length > 0 ? (
         <QuizEnd resetQuiz={resetQuiz} score={score} />
       ) : (
