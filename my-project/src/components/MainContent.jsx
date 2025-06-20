@@ -18,6 +18,8 @@ export const MainContent = () => {
   const [amount, setAmount] = useState(15);
   const [catchedError, setCatchedError] = useState(null);
   const [showLoader, setShowLoader] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const toggleMute = () => setIsMuted((m) => !m);
 
   const resetQuiz = () => {
     setfetchedEntities([]);
@@ -128,6 +130,8 @@ export const MainContent = () => {
                 entityIndex={entityIndex}
                 totalQuestions={fetchedEntities.length}
                 restartQuizSameSettings={restartQuizSameSettings}
+                isMuted={isMuted}
+                toggleMute={toggleMute}
               />
             )}
           </>
