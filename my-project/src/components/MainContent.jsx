@@ -6,6 +6,7 @@ import { QuizMain } from "./QuizMain";
 import { QuizEnd } from "./QuizEnd";
 import { ErrorBanner } from "./ErrorBanner";
 import loadingDot from "../images/loadingDot.gif";
+import { stopBackgroundSound, startBackgroundSound } from "./utils";
 
 export const MainContent = () => {
   const [loading, setLoading] = useState(false);
