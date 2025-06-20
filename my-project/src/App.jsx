@@ -3,7 +3,6 @@ import { Footer } from "./components/Footer";
 import logo from "./images/logo_light.png";
 import { MainContent } from "./components/MainContent";
 import styles from "./components/styles/Shared.module.css";
-import { stopBackgroundSound } from "./components/utils";
 
 export const App = () => {
   return (
@@ -12,6 +11,7 @@ export const App = () => {
         title="Trivi-Oh!"
         subtitle="Test your knowledge-ho!"
         logo={logo}
+        onClick={() => window.location.reload()}
       />
       <MainContent />
       <Footer />
