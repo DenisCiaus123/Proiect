@@ -13,9 +13,16 @@
 }
 
 .loadingScreen {
-  color: #fefae0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: #3c3f58;
-  font-size: 2rem;
-  text-align: center;
-  padding: 100px 0;
+  color: #fefae0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  z-index: 9999;
 }
