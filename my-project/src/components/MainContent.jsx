@@ -6,6 +6,7 @@ import { QuizMain } from "./QuizMain";
 import { QuizEnd } from "./QuizEnd";
 import { ErrorBanner } from "./ErrorBanner";
 import loadingDot from "../images/loadingDot.gif";
+import { stopBackgroundSound, startBackgroundSound } from "./utils";
 
 export const MainContent = () => {
   const [loading, setLoading] = useState(false);
@@ -68,6 +69,17 @@ export const MainContent = () => {
   };
 
   useEffect(() => {
+    const quizActive =
+      entity && entityIndex !== null && entityIndex < fetchedEntities.length;
+    if (quizActive && !isMuted) {
+      startBackgroundSound();
+    } else {
+      stopBackgroundSound();
+    }
+    return () => stopBackgroundSound();
+  }, [entity, entityIndex, fetchedEntities.length, isMuted]);
+
+  useEffect(() => {
     if (catchedError) {
       setTimeout(() => {
         setCatchedError(null);
@@ -120,6 +132,7 @@ export const MainContent = () => {
                 fetchData={fetchData}
                 loading={loading}
                 resetQuiz={resetQuiz}
+                isMuted={isMuted}
               />
             ) : (
               <QuizMain
