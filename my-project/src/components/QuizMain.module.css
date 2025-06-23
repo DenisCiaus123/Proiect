@@ -175,13 +175,15 @@
   }
 
   .multipleChoiceGrid {
-    grid-template-columns: 1fr;
-    row-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
   .answerButton {
     width: 80%;
-    margin: 10px 0;
+    margin: 0;
   }
 
   .scorePanel {
