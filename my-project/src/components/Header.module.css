@@ -6,15 +6,11 @@
   background-color: #3c3f58;
 }
 
-.navbarLogo {
-  padding: 20px;
-}
-
 .logoImg {
   height: auto;
   width: auto;
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .titleContainer {
