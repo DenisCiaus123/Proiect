@@ -1,8 +1,11 @@
 import { createRoot } from "react-dom/client";
 import { App } from "./App";
-import { injectSpeedInsights } from "@vercel/speed-insights";
 
-injectSpeedInsights();
+if (typeof window !== "undefined") {
+  import("@vercel/speed-insights").then(({ injectSpeedInsights }) => {
+    injectSpeedInsights();
+  });
+}
 
 const rootDiv = document.getElementById("root");
 const virtualDom = createRoot(rootDiv);
