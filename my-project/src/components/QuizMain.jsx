@@ -33,8 +33,10 @@ export const QuizMain = ({
       setSelectedAnswer(null);
       setShowResult(false);
     }
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   }, [entity]);
-
   const checkAnswer = (e) => {
     if (showResult) return;
     const answerText = e.target.textContent;
