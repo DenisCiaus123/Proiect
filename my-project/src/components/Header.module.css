@@ -11,6 +11,7 @@
   width: auto;
   max-width: 100px;
   max-height: 100px;
+  padding: 20px;
 }
 
 .titleContainer {
@@ -42,13 +43,23 @@
     padding: 10px;
   }
 
+  .logoImg {
+    height: auto;
+    width: auto;
+    max-width: 100px;
+    max-height: 100px;
+    padding: 0px;
+  }
+
   .navbarTitle {
     font-size: 1.5rem;
     text-align: center;
+    padding: 0px;
   }
 
   .navbarSubtitle {
     font-size: 1rem;
     text-align: center;
+    padding: 10px;
   }
 }
