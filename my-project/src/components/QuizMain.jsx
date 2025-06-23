@@ -25,7 +25,7 @@ export const QuizMain = ({
   toggleMute,
 }) => {
   const [answers, setAnswers] = useState([]);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
