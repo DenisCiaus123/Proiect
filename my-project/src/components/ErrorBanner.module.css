@@ -14,12 +14,17 @@
   animation: slideUp 0.1s ease-out;
 }
 
-
 @keyframes slideUp {
   from {
     transform: translateY(100%);
   }
   to {
     transform: translateY(0);
+  }
+}
+@media (max-width: 600px) {
+  .errorBanner {
+    font-size: 1rem;
+    padding: 16px 12px;
   }
 }

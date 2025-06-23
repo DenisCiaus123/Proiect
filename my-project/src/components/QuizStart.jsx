@@ -1,4 +1,6 @@
 import styles from "./QuizStart.module.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const QuizStart = ({
   category,
@@ -8,7 +10,17 @@ export const QuizStart = ({
   amount,
   setAmount,
   fetchData,
+  setType,
+  type,
 }) => {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://opentdb.com/api_category.php")
+      .then((res) => setCategories(res.data.trivia_categories))
+      .catch(() => setCategories([]));
+  }, []);
+
   return (
     <div className={styles.card}>
       <div className={styles.difficultySelector}>
@@ -71,30 +83,11 @@ export const QuizStart = ({
         onChange={(e) => setCategory(e.target.value)}
       >
         <option value="">Any Category</option>
-        <option value="9">General Knowledge</option>
-        <option value="10">Entertainment: Books</option>
-        <option value="11">Entertainment: Film</option>
-        <option value="12">Entertainment: Music</option>
-        <option value="13">Entertainment: Musicals & Theatres</option>
-        <option value="14">Entertainment: Television</option>
-        <option value="15">Entertainment: Video Games</option>
-        <option value="16">Entertainment: Board Games</option>
-        <option value="17">Science & Nature</option>
-        <option value="18">Science: Computers</option>
-        <option value="19">Science: Mathematics</option>
-        <option value="20">Mythology</option>
-        <option value="21">Sports</option>
-        <option value="22">Geography</option>
-        <option value="23">History</option>
-        <option value="24">Politics</option>
-        <option value="25">Art</option>
-        <option value="26">Celebrities</option>
-        <option value="27">Animals</option>
-        <option value="28">Vehicles</option>
-        <option value="29">Entertainment: Comics</option>
-        <option value="30">Science: Gadgets</option>
-        <option value="31">Entertainment: Japanese Anime & Manga</option>
-        <option value="32">Entertainment: Cartoon & Animations</option>
+        {categories.map((cat) => (
+          <option key={cat.id} value={cat.id}>
+            {cat.name}
+          </option>
+        ))}
       </select>
       <div className="numberOfQuestionsContainer">
         <span className={styles.amountLabel}>Number of questions: </span>
@@ -118,6 +111,46 @@ export const QuizStart = ({
         ></input>
         <span className={styles.amountLabel}> (5-25) </span>
       </div>
+      <div className={styles.typeSelector}>
+        <span className={styles.typeLabel}>Question Type:</span>
+
+        <label className={styles.customRadio}>
+          <input
+            type="radio"
+            name="type"
+            value=""
+            checked={type === ""}
+            onChange={(e) => setType(e.target.value)}
+          />
+          <span className={styles.radioMark}></span>
+          Mixed Questions
+        </label>
+
+        <label className={styles.customRadio}>
+          <input
+            type="radio"
+            name="type"
+            value="multiple"
+            checked={type === "multiple"}
+            onChange={(e) => setType(e.target.value)}
+          />
+          <span className={styles.radioMark}></span>
+          Multiple Choice
+        </label>
+
+        <label className={styles.customRadio}>
+          <input
+            type="radio"
+            name="type"
+            value="boolean"
+            checked={type === "boolean"}
+            onChange={(e) => setType(e.target.value)}
+          />
+          <span className={styles.radioMark}></span>
+          True / False
+        </label>
+      </div>
+
       <button
         className={styles.startQuizButton}
         onClick={() => {

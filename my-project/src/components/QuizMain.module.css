@@ -220,4 +220,8 @@
   .answerButton:focus {
     outline: none;
   }
+  .answerButton:hover {
+    outline: none;
+    background-color: #3c3f58;
+  }
 }
