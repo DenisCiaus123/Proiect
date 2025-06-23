@@ -10,6 +10,8 @@ export const QuizStart = ({
   amount,
   setAmount,
   fetchData,
+  setType,
+  type,
 }) => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -109,6 +111,46 @@ export const QuizStart = ({
         ></input>
         <span className={styles.amountLabel}> (5-25) </span>
       </div>
+      <div className={styles.typeSelector}>
+        <span className={styles.typeLabel}>Question Type:</span>
+
+        <label className={styles.customRadio}>
+          <input
+            type="radio"
+            name="type"
+            value=""
+            checked={type === ""}
+            onChange={(e) => setType(e.target.value)}
+          />
+          <span className={styles.radioMark}></span>
+          Mixed Questions
+        </label>
+
+        <label className={styles.customRadio}>
+          <input
+            type="radio"
+            name="type"
+            value="multiple"
+            checked={type === "multiple"}
+            onChange={(e) => setType(e.target.value)}
+          />
+          <span className={styles.radioMark}></span>
+          Multiple Choice
+        </label>
+
+        <label className={styles.customRadio}>
+          <input
+            type="radio"
+            name="type"
+            value="boolean"
+            checked={type === "boolean"}
+            onChange={(e) => setType(e.target.value)}
+          />
+          <span className={styles.radioMark}></span>
+          True / False
+        </label>
+      </div>
+
       <button
         className={styles.startQuizButton}
         onClick={() => {

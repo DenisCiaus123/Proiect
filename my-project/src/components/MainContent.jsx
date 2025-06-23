@@ -24,6 +24,7 @@ export const MainContent = () => {
   const [catchedError, setCatchedError] = useState(null);
   const [showLoader, setShowLoader] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [type, setType] = useState("");
   const toggleMute = () => setIsMuted((m) => !m);
 
   const resetQuiz = () => {
@@ -54,6 +55,9 @@ export const MainContent = () => {
       }
       if (difficulty && difficulty !== "mixed") {
         url += `&difficulty=${difficulty}`;
+      }
+      if (type) {
+        url += `&type=${type}`;
       }
 
       setEntityIndex(0);
@@ -134,6 +138,8 @@ export const MainContent = () => {
                 setCategory={setCategory}
                 difficulty={difficulty}
                 setDifficulty={setDifficulty}
+                type={type}
+                setType={setType}
                 fetchData={fetchData}
                 loading={loading}
                 resetQuiz={resetQuiz}
