@@ -51,3 +51,14 @@
   margin-top: 26px;
   display: block;
 }
+@media (max-width: 768px) {
+  .layout {
+    padding: 1rem;
+    background-size: cover;
+  }
+
+  .loadingScreen {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
