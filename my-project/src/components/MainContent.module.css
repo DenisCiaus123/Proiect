@@ -57,8 +57,16 @@
     background-size: cover;
   }
 
+  dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
+
   .loadingScreen {
-    font-size: 2rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
   }
 }
