@@ -13,7 +13,7 @@
   position: relative;
 }
 
-.customRadio input[type="radio"]:checked+.radioMark::after {
+.customRadio input[type="radio"]:checked + .radioMark::after {
   content: "";
   width: 8px;
   height: 8px;
@@ -24,7 +24,7 @@
   left: 4px;
 }
 
-.customRadio input[type="radio"]:focus+.radioMark {
+.customRadio input[type="radio"]:focus + .radioMark {
   box-shadow: 0 0 2px 2px #fefae0;
 }
 
@@ -133,8 +133,6 @@
   -moz-appearance: textfield;
 }
 
-
-
 .amountInput::-webkit-outer-spin-button,
 .amountInput::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -145,5 +143,30 @@
   outline: none;
   box-shadow: 0 0 4px 2px #fefae0;
 }
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    padding: 20px;
+  }
 
+  .difficultySelector {
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+  }
 
+  .startQuizButton {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .numberOfQuestionsContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .amountLabel,
+  .amountInput {
+    font-size: 1rem;
+  }
+}

@@ -31,7 +31,7 @@
 
 .startQuizButton {
   color: #fefae0;
-  background-color: #3C3F58;
+  background-color: #3c3f58;
   border-radius: 15px;
   padding: 10px 30px;
   margin-top: 30px;
@@ -43,11 +43,46 @@
 
 .startQuizButton:hover {
   box-shadow: 0 2px 6px 0 #3c3f5877, 0 7px 15px 0 #54587c65;
-  background-color: #5A7D9A;
+  background-color: #5a7d9a;
   cursor: pointer;
 }
 
 .startQuizButton:active {
   transform: translateY(4px);
-  background-color: #3C3F58;
+  background-color: #3c3f58;
+}
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .multipleChoiceGrid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .answerButton {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .scorePanel {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .questionContainer {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .categorySymbol {
+    height: 40px;
+  }
+
+  .questionNumber {
+    font-size: 0.9rem;
+    margin: 10px;
+  }
 }
