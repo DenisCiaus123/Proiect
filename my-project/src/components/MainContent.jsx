@@ -6,7 +6,8 @@ import { QuizMain } from "./QuizMain";
 import { QuizEnd } from "./QuizEnd";
 import { ErrorBanner } from "./ErrorBanner";
 import loadingDot from "../images/loadingDot.gif";
-import { stopBackgroundSound, startBackgroundSound } from "./utils";
+import { stopBackgroundSound, startBackgroundSound } from "./utils/utils.js";
+import { decodeBase64Fields } from "./utils/utils.ts";
 
 export const MainContent = () => {
   const [loading, setLoading] = useState(false);
@@ -41,7 +42,7 @@ export const MainContent = () => {
     if (loading) return;
     setLoading(true);
     try {
-      let url = `https://opentdb.com/api.php?`;
+      let url = `https://opentdb.com/api.php?&encode=base64&`;
       if (amount) {
         url += `amount=${amount}`;
       }
@@ -55,8 +56,9 @@ export const MainContent = () => {
       setEntityIndex(0);
       setScore(0);
       const response = await axios.get(url);
-      setfetchedEntities(response.data.results);
-      setEntity(response.data.results[0]);
+      const decodeResults = decodeBase64Fields(response.data.results);
+      setfetchedEntities(decodeResults);
+      setEntity(decodeResults[0]);
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.status === 429) {
         setCatchedError("Too many requests! Try in few seconds!");

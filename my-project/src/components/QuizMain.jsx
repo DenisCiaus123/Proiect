@@ -2,11 +2,16 @@ import { useEffect, useState } from "react";
 import styles from "./QuizMain.module.css";
 import shared from "./styles/Shared.module.css";
 import { categorySymbols } from "./CategorySymbols";
-import { playSounds } from "./utils";
+import { playSounds } from "./utils/utils";
 import volumeOn from "../images/volumeOn.png";
 import volumeOff from "../images/volumeOff.png";
 
-import { decodeHtml, addPoints, shuffle, applyDifficultyStyle } from "./utils";
+import {
+  decodeHtml,
+  addPoints,
+  shuffle,
+  applyDifficultyStyle,
+} from "./utils/utils";
 
 export const QuizMain = ({
   entity,
@@ -58,10 +63,10 @@ export const QuizMain = ({
       return `${styles.answerButton} ${styles.correct}`;
     return `${styles.answerButton} ${styles.incorrect}`;
   };
+
   const symbolSrc =
     categorySymbols[decodeHtml(entity.category)] ||
     "src/images/categories/symbol_any.png";
-
   return (
     <>
       <button onClick={toggleMute} className={styles.muteButton}>
