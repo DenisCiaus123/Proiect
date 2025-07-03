@@ -108,7 +108,6 @@ export const QuizMain = ({
         </button>
       </div>
       <div className={styles.timerContainer}>
-        <span className={styles.timerText}> Time Remaining:</span>
         <span className={styles.timerValue}>
           {timer && timeLeft > 999
             ? `Time Remaining: ${Math.ceil(timeLeft / 1000)} seconds`
