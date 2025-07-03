@@ -168,6 +168,35 @@
   outline: none;
   box-shadow: none;
 }
+
+.timerContainer {
+  background-color: #b40d0d96;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(190, 186, 186, 0.2);
+}
+
+.timerText {
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+}
+
+.timerValue {
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
 @media (max-width: 768px) {
   .card {
     width: 90%;

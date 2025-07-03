@@ -23,10 +23,34 @@ export const QuizMain = ({
   restartQuizSameSettings,
   isMuted,
   toggleMute,
+  timer = 10000,
 }) => {
   const [answers, setAnswers] = useState([]);
-  const [, setSelectedAnswer] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(timer);
+
+  useEffect(() => {
+    if (!showResult && timer) {
+      setTimeLeft(timer);
+      const interval = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1000) {
+            clearInterval(interval);
+            setSelectedAnswer(null);
+            setShowResult(true);
+            playSounds("/sounds/timesUp.mp3", isMuted);
+            setTimeout(() => {
+              setEntityIndex((prev) => prev + 1);
+            }, 2000);
+            return 0;
+          }
+          return prev - 1000;
+        });
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [entity, showResult, timer]);
 
   useEffect(() => {
     if (entity) {
@@ -61,7 +85,10 @@ export const QuizMain = ({
     if (!showResult) return styles.answerButton;
     if (answer === decodeHtml(entity.correct_answer))
       return `${styles.answerButton} ${styles.correct}`;
-    return `${styles.answerButton} ${styles.incorrect}`;
+    if (selectedAnswer === null) return styles.answerButton;
+    if (answer === selectedAnswer)
+      return `${styles.answerButton} ${styles.incorrect}`;
+    return styles.answerButton;
   };
 
   const symbolSrc =
@@ -69,14 +96,23 @@ export const QuizMain = ({
     "src/images/categories/symbol_any.png";
   return (
     <>
-      <button onClick={toggleMute} className={styles.muteButton}>
-        <img
-          src={isMuted ? volumeOff : volumeOn}
-          alt={isMuted ? "Unmute" : "Mute"}
-          width={40}
-          height={40}
-        />
-      </button>
+      {" "}
+      <div>
+        <button onClick={toggleMute} className={styles.muteButton}>
+          <img
+            src={isMuted ? volumeOff : volumeOn}
+            alt={isMuted ? "Unmute" : "Mute"}
+            width={40}
+            height={40}
+          />
+        </button>
+      </div>
+      <div className={styles.timerContainer}>
+        <span className={styles.timerText}> Time Remaining:</span>
+        <span className={styles.timerValue}>
+          {timer ? `${Math.ceil(timeLeft / 1000)} seconds` : "No Timer"}
+        </span>
+      </div>
       <div
         className={`${styles.card} ${
           styles[applyDifficultyStyle(entity.difficulty)]
