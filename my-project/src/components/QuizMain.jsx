@@ -86,9 +86,7 @@ export const QuizMain = ({
     if (answer === decodeHtml(entity.correct_answer))
       return `${styles.answerButton} ${styles.correct}`;
     if (selectedAnswer === null) return styles.answerButton;
-    if (answer === selectedAnswer)
-      return `${styles.answerButton} ${styles.incorrect}`;
-    return styles.answerButton;
+    return `${styles.answerButton} ${styles.incorrect}`;
   };
 
   const symbolSrc =
