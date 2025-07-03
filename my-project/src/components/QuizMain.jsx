@@ -36,10 +36,10 @@ export const QuizMain = ({
       const interval = setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1000) {
+            playSounds("/sounds/timesUp.mp3", isMuted);
             clearInterval(interval);
             setSelectedAnswer(null);
             setShowResult(true);
-            playSounds("/sounds/timesUp.mp3", isMuted);
             setTimeout(() => {
               setEntityIndex((prev) => prev + 1);
             }, 2000);
@@ -50,7 +50,7 @@ export const QuizMain = ({
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [entity, showResult, timer]);
+  }, [entity, showResult, timer, isMuted]);
 
   useEffect(() => {
     if (entity) {
@@ -110,7 +110,9 @@ export const QuizMain = ({
       <div className={styles.timerContainer}>
         <span className={styles.timerText}> Time Remaining:</span>
         <span className={styles.timerValue}>
-          {timer ? `${Math.ceil(timeLeft / 1000)} seconds` : "No Timer"}
+          {timer && timeLeft > 999
+            ? `Time Remaining: ${Math.ceil(timeLeft / 1000)} seconds`
+            : `Time's up!`}
         </span>
       </div>
       <div
